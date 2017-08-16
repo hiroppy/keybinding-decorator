@@ -43,6 +43,10 @@ function keybind(cb: Function, key: string) {
     Mousetrap.bind(key, () => Reflect.apply(cb, this, args));
   }
 
+  keybindWrapper.unbind = function clear() {
+    Mousetrap.unbind(key);
+  };
+
   return keybindWrapper;
 }
 

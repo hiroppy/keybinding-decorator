@@ -13,7 +13,7 @@ class C extends React.Component {
 
   @keybind('esc')
   esc() {
-    console.log('aaa')
+    console.log('aaa');
     this.setState({ ans: 'esc' });
   }
 
@@ -32,7 +32,7 @@ test.skip('press ESC key', () => {
     key: 'Escape'
   });
 
-  console.log('=======')
-  console.log(wrapper.find('#res').props().children)
+  console.log('=======');
+  console.log(wrapper.find('#res').props().children);
   expect(wrapper.find('#res').props().children).toBe('');
 });

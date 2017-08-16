@@ -18,6 +18,11 @@ class Main extends React.Component {
     Reflect.apply(this.esc, this, []);
   }
 
+  componentWillUnmount() {
+    this.esc.unbind();
+    this.csk.unbind();
+  }
+
   @keybind('command+shift+k')
   csk() {
     this.setState({ current: 'command+shift+k' });

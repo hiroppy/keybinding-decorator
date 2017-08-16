@@ -48,6 +48,11 @@ class Main extends React.Component {
     this.setState({ current: 'esc' });
   }
 
+  componentWillUnmount() {
+    this.esc.unbind();
+    this.csk.unbind();
+  }
+
   render() {
     return (
       <div>current: {this.state.current}</div>
@@ -64,3 +69,8 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
+## Method
+### unbind()
+A method binded by `decorator` has `unbind` method.  
+Release this function from Mousetrap.
