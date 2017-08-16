@@ -6,10 +6,8 @@
   <strong>Decorator for Keybinding</strong>
 </div>
 
-<!-- travis https://travis-ci.org/ -->
-<!-- appveyor https://ci.appveyor.com -->
-<!-- codecov https://codecov.io/gh -->
-<!-- npm version badge: https://badge.fury.io/ -->
+[![Build Status](https://travis-ci.org/abouthiroppy/keybinding-decorator.svg?branch=master)](https://travis-ci.org/abouthiroppy/keybinding-decorator)
+[![npm version](https://badge.fury.io/js/keybinding-decorator.svg)](https://badge.fury.io/js/keybinding-decorator)
 
 keybinding-decorator is using [Mousetrap](https://github.com/ccampbell/mousetrap).  
 

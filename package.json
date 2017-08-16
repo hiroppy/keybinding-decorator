@@ -2,6 +2,10 @@
   "name": "keybinding-decorator",
   "main": "lib/index.js",
   "author": "abouthiroppy <git@about-hiroppy.com http://about-hiroppy.com",
+  "repository": {
+    "url": "git+https://github.com/abouthiroppy/keybinding-decorator.git",
+    "type": "git"
+  },
   "version": "0.0.1",
   "license": "MIT",
   "description": "Decorator for keybinding",
