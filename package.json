@@ -6,7 +6,7 @@
     "url": "git+https://github.com/abouthiroppy/keybinding-decorator.git",
     "type": "git"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "description": "Decorator for keybinding",
   "keywords": [
