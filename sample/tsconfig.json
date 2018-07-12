@@ -1,0 +1,22 @@
+// experimentalDecorators
+{
+  "compilerOptions": {
+    "target": "es5",
+    "jsx": "react",
+    "lib": ["es2018", "dom"],
+    "outDir": "dist",
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "removeComments": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "strict": true,
+    "experimentalDecorators": true
+  },
+  "files": ["./main.tsx"]
+}

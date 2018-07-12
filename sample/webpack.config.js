@@ -1,33 +1,28 @@
 'use strict';
 
-const path    = require('path');
+const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: [
-    path.join(__dirname, 'main.js')
-  ],
+  mode: 'development',
+  entry: path.join(__dirname, 'main.tsx'),
   output: {
-    path      : path.join(__dirname, 'dist'),
-    filename  : 'bundle.js',
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
     publicPath: '/dist/'
   },
-  target : 'web',
+  resolve: {
+    extensions: ['.js', '.ts', '.tsx']
+  },
   devtool: 'cheap-module-eval-source-map',
-  module : {
-    loaders: [
+  module: {
+    rules: [
       {
-        test   : /\.js$/,
-        loader : 'babel-loader',
-        exclude: path.join(__dirname, 'node_modules')
+        test: /\.tsx$/,
+        use: 'awesome-typescript-loader'
       }
     ]
   },
-  plugins: [
-  ],
-  devServer: {
-    port       : 8080,
-    inline     : true,
-    contentBase: '.'
-  }
+  plugins: [new HtmlWebpackPlugin()]
 };

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es2018", "dom"],
+    "outDir": "lib",
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "removeComments": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "strict": true
+  },
+  "files": ["src/index.ts"]
+}
