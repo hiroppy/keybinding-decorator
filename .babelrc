@@ -1,9 +1,0 @@
-{
-  "presets": ["latest", "stage-1", "flow"],
-  "env": {
-    "test": {
-      "presets": ["react"],
-      "plugins": ["transform-decorators-legacy"]
-    }
-  }
-}

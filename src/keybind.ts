@@ -1,12 +1,15 @@
-// @flow
+import * as Mousetrap from 'mousetrap';
 
-import Mousetrap from 'mousetrap';
+interface KeybindWrapper {
+  (): void;
+  // unbind(): Function;
+}
 
 /**
  * decorator wrapper
  * @param {string | string[]} key - keyboard
  */
-function outerDecorator(key: string | string[]) {
+export function outerDecorator(key: string | string[]) {
   return function innerDecorator(
     target: Object,
     name: string,
@@ -14,12 +17,12 @@ function outerDecorator(key: string | string[]) {
   ) {
     return {
       configurable: true,
-      enumerable  : descriptor.enumerable,
-      get         : function getter() {
+      enumerable: descriptor.enumerable,
+      get: function getter(): KeybindWrapper {
         Reflect.defineProperty(this, key, {
           configurable: true,
-          enumerable  : descriptor.enumerable,
-          value       : keybind(descriptor.value, key)
+          enumerable: descriptor.enumerable,
+          value: keybind(descriptor.value, key)
         });
 
         return this[key];
@@ -33,8 +36,7 @@ function outerDecorator(key: string | string[]) {
  * @param {Function} cb - decorator's callback
  * @param {string | string[]} key - keyboard
  */
-function keybind(cb: Function, key: string | string[]) {
-
+function keybind(cb: Function, key: string | string[]): KeybindWrapper {
   /**
    * wrapper
    * @param {Array} args - arguments from `apply`
@@ -43,11 +45,9 @@ function keybind(cb: Function, key: string | string[]) {
     Mousetrap.bind(key, () => Reflect.apply(cb, this, args));
   }
 
-  keybindWrapper.unbind = function clear() {
+  keybindWrapper.prototype.unbind = function unbind() {
     Mousetrap.unbind(key);
   };
 
   return keybindWrapper;
 }
-
-export default outerDecorator;

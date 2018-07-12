@@ -1,19 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import keybind from '../lib';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { keybind } from '../lib';
 
-class Main extends React.Component {
-  constructor() {
-    super();
+interface State {
+  current: string;
+}
+
+class Main extends React.Component<{}, State> {
+  constructor(props: {}) {
+    super(props);
 
     this.state = {
       current: ''
     };
 
     // init
-    // this.esc.apply(this);
-    // this.csk.apply(this);
-
     Reflect.apply(this.csk, this, []);
     Reflect.apply(this.esc, this, []);
   }
@@ -34,17 +35,10 @@ class Main extends React.Component {
   }
 
   render() {
-    return (
-      <div>current: {this.state.current}</div>
-    );
+    return <div>current: {this.state.current}</div>;
   }
 }
 
-const root = () => (
-  <Main />
-);
+const root = () => <Main />;
 
-ReactDOM.render(
-  root(),
-  document.getElementById('root')
-);
+ReactDOM.render(root(), document.body);

@@ -9,19 +9,21 @@
 [![Build Status](https://travis-ci.org/abouthiroppy/keybinding-decorator.svg?branch=master)](https://travis-ci.org/abouthiroppy/keybinding-decorator)
 [![npm version](https://badge.fury.io/js/keybinding-decorator.svg)](https://badge.fury.io/js/keybinding-decorator)
 
-keybinding-decorator is using [Mousetrap](https://github.com/ccampbell/mousetrap).  
+keybinding-decorator is using [Mousetrap](https://github.com/ccampbell/mousetrap).
 
 Decorators offer a convenient declarative syntax to modify the shape of class declarations.  
 see: https://tc39.github.io/proposal-decorators/
 
-You must use `babel-plugin-transform-decorators-legacy`.  
+You must use `babel-plugin-transform-decorators-legacy`.
 
 ## Install
+
 ```
 $ npm install keybinding-decorator --save
 ```
 
 ## Usage
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -54,23 +56,18 @@ class Main extends React.Component {
   }
 
   render() {
-    return (
-      <div>current: {this.state.current}</div>
-    );
+    return <div>current: {this.state.current}</div>;
   }
 }
 
-const root = () => (
-  <Main />
-);
+const root = () => <Main />;
 
-ReactDOM.render(
-  root(),
-  document.getElementById('root')
-);
+ReactDOM.render(root(), document.getElementById('root'));
 ```
 
 ## Method
+
 ### unbind()
+
 A method binded by `decorator` has `unbind` method.  
 Release this function from Mousetrap.

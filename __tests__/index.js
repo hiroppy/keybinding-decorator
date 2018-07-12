@@ -18,9 +18,7 @@ class C extends React.Component {
   }
 
   render() {
-    return (
-      <span id="res">{this.state.ans}</span>
-    );
+    return <span id="res">{this.state.ans}</span>;
   }
 }
 
