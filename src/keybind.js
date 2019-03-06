@@ -4,9 +4,9 @@ import Mousetrap from 'mousetrap';
 
 /**
  * decorator wrapper
- * @param {string} key - keyboard
+ * @param {string | string[]} key - keyboard
  */
-function outerDecorator(key: string) {
+function outerDecorator(key: string | string[]) {
   return function innerDecorator(
     target: Object,
     name: string,
@@ -31,9 +31,9 @@ function outerDecorator(key: string) {
 /**
  * keybind
  * @param {Function} cb - decorator's callback
- * @param {string} key - keyboard
+ * @param {string | string[]} key - keyboard
  */
-function keybind(cb: Function, key: string) {
+function keybind(cb: Function, key: string | string[]) {
 
   /**
    * wrapper
