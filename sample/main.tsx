@@ -20,7 +20,9 @@ class Main extends React.Component<{}, State> {
   }
 
   componentWillUnmount() {
+    // @ts-ignore
     this.esc.unbind();
+    // @ts-ignore
     this.csk.unbind();
   }
 
