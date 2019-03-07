@@ -1,10 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 import { mount } from 'enzyme';
-import keybind from '../src';
+import { keybind } from '../src';
 
-class C extends React.Component {
-  constructor() {
-    super();
+interface Props {}
+interface State {
+  ans: string;
+}
+
+class C extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
 
     this.state = { ans: '' };
 
@@ -12,6 +17,7 @@ class C extends React.Component {
   }
 
   @keybind('esc')
+  // @ts-ignore
   esc() {
     console.log('aaa');
     this.setState({ ans: 'esc' });
@@ -22,15 +28,13 @@ class C extends React.Component {
   }
 }
 
-test.skip('press ESC key', () => {
+test('press ESC key', () => {
   const wrapper = mount(<C />);
 
-  // expect(wrapper.find('#res').props().children).toBe('');
+  expect(wrapper.find('#res').props().children).toBe('');
   wrapper.simulate('keyDown', {
     key: 'Escape'
   });
 
-  console.log('=======');
-  console.log(wrapper.find('#res').props().children);
   expect(wrapper.find('#res').props().children).toBe('');
 });

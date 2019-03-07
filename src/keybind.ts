@@ -2,7 +2,7 @@ import * as Mousetrap from 'mousetrap';
 
 interface KeybindWrapper {
   (): void;
-  // unbind(): Function;
+  // unbind(): void;
 }
 
 /**
@@ -19,12 +19,13 @@ export function outerDecorator(key: string | string[]) {
       configurable: true,
       enumerable: descriptor.enumerable,
       get: function getter(): KeybindWrapper {
-        Reflect.defineProperty(this, key, {
+        Reflect.defineProperty(this, key as any, {
           configurable: true,
           enumerable: descriptor.enumerable,
           value: keybind(descriptor.value, key)
         });
 
+        // @ts-ignore
         return this[key];
       }
     };
@@ -42,12 +43,12 @@ function keybind(cb: Function, key: string | string[]): KeybindWrapper {
    * @param {Array} args - arguments from `apply`
    */
   function keybindWrapper(...args: Array<any>) {
-    Mousetrap.bind(key, () => Reflect.apply(cb, this, args));
+    Mousetrap.bind(key, () => Reflect.apply(cb, this as any, args));
   }
 
   keybindWrapper.prototype.unbind = function unbind() {
     Mousetrap.unbind(key);
   };
 
-  return keybindWrapper;
+  return keybindWrapper as any;
 }

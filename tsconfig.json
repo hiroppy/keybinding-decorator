@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["es2018", "dom"],
+    "jsx": "react",
     "outDir": "lib",
     "module": "commonjs",
     "declaration": true,
@@ -13,7 +14,9 @@
     "removeComments": true,
     "sourceMap": true,
     "inlineSources": true,
-    "strict": true
+    "strict": true,
+    "experimentalDecorators": true
   },
-  "files": ["src/index.ts"]
+  "exclude": ["node_modules", "__tests__/index.tsx"],
+  "include": ["src/**/*"]
 }
