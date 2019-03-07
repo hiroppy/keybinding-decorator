@@ -11,7 +11,7 @@ os:
 before_script:
   - npm install
   - npm test
-  - npm run lint
+  - npm run build
 after_success:
   - npm install codecov -g
   - npm run postcover
